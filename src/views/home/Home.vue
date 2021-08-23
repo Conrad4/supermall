@@ -1,37 +1,21 @@
 <template>
-  <div id="home" class="wrapper">
-    <nav-bar class="home-nav"><div slot="center">购物街</div></nav-bar>
-    <scroll class="content"
-            ref="scroll"
-            :probe-type="3"
-            @scroll="contentScroll"
-            :pull-up-load="true"
-            @pullingUp="loadMore">
-      <home-swiper :banners="banners"/>
-      <recommend-view :recommends="recommends"/>
-      <feature-view/>
-      <tab-control class="tab-control"
-                   :titles="['流行', '新款', '精选']"
-                   @tabClick="tabClick"/>
-      <good-list :goods="showGoods"/>
-    </scroll>
-    <div>呵呵呵呵</div>
-    <back-top @click.native="backClick" v-show="isShowBackTop"/>
+  <div id="home">
+    <nav-bar class=""><div slot="center">购物街</div></nav-bar>
   </div>
 </template>
 
 <script>
-  import HomeSwiper from './childComps/HomeSwiper'
-  import RecommendView from './childComps/RecommendView'
-  import FeatureView from './childComps/FeatureView'
+  // import HomeSwiper from './childComps/HomeSwiper'
+  // import RecommendView from './childComps/RecommendView'
+  // import FeatureView from './childComps/FeatureView'
 
   import NavBar from 'components/common/navbar/NavBar'
-  import TabControl from 'components/content/tabControl/TabControl'
-  import GoodList from 'components/content/goods/GoodsList'
-  import Scroll from 'components/common/scroll/Scroll'
-  import BackTop from 'components/content/backTop/BackTop'
+  // import TabControl from 'components/content/tabControl/TabControl'
+  // import GoodList from 'components/content/goods/GoodsList'
+  // import Scroll from 'components/common/scroll/Scroll'
+  // import BackTop from 'components/content/backTop/BackTop'
 
-  import { getHomeMultidata, getHomeGoods } from "network/home"
+  import { getHomeMultidata } from "network/home"
 
   export default {
     name: "Home",
