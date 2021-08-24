@@ -1,11 +1,12 @@
 <template>
   <div id="home">
     <nav-bar class=""><div slot="center">购物街</div></nav-bar>
+    <home-swiper :banners="banners"/>
   </div>
 </template>
 
 <script>
-  // import HomeSwiper from './childComps/HomeSwiper'
+  import HomeSwiper from './childComps/HomeSwiper'
   // import RecommendView from './childComps/RecommendView'
   // import FeatureView from './childComps/FeatureView'
 
