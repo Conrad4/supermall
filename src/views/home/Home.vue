@@ -37,7 +37,7 @@ export default defineComponent({
     // 1.请求多个数据
     this.getHomeMultidata();
 
-    // 2.请求商品数据
+    // 2.请求商品数据  
     this.getHomeGoods("pop");
     this.getHomeGoods("new");
     this.getHomeGoods("sell");
@@ -78,15 +78,23 @@ export default defineComponent({
         this.recommends = res.data.recommend.list;
       });
     },
-    getHomeGoods(type) {
-      const page = this.goods[type].page + 1;
-      getHomeGoods(type, page).then((res) => {
-        this.goods[type].list.push(...res.data.list);
-        this.goods[type].page += 1;
+    // getHomeGoods(type) {
+    //   const page = this.goods[type].page + 1;
+    //   getHomeGoods(type, page).then((res) => {
+    //     this.goods[type].list.push(...res.data.list);
+    //     this.goods[type].page += 1;
 
-        this.$refs.scroll.finishPullUp();
-      });
-    },
+    //     this.$refs.scroll.finishPullUp();
+    //   });
+    // },
+    getHomeGoods(type){
+      const page = this.goods[type].page + 1;
+      getHomeGoods(type,page).then((res) => {
+         this.goods[type].list.push(...res.data.list);
+          this.goods[type].page += 1;
+
+      })
+    }
   },
 });
 </script>
