@@ -3,19 +3,24 @@
     <nav-bar class=""><div slot="center">购物街</div></nav-bar>
     <home-swiper :banners="banners" />
     <recommend-view :recommends="recommends" />
-    <tab-control  class="tab-control" :titles="['流行', '新款', '精选']" @tabClick="tabClick"/>
+    <tab-control
+      class="tab-control"
+      :titles="['流行', '新款', '精选']"
+      @tabClick="tabClick"
+    />
     <good-list :goods="showGoods" />
   </div>
 </template>
 
 <script>
-  
 import HomeSwiper from "./childComps/HomeSwiper";
 import RecommendView from "./childComps/RecommendView";
 
 import NavBar from "components/common/navbar/NavBar";
-import TabControl from 'components/content/tabControl/TabControl';
+import TabControl from "components/content/tabControl/TabControl";
 import GoodList from "components/content/goods/GoodList";
+import Scroll from "components/common/scroll/Scroll";
+import BackTop from "components/content/backTop/BackTop";
 
 import { getHomeMultidata } from "network/home";
 
@@ -44,7 +49,7 @@ export default defineComponent({
     // 1.请求多个数据
     this.getHomeMultidata();
 
-    // 2.请求商品数据  
+    // 2.请求商品数据
     this.getHomeGoods("pop");
     this.getHomeGoods("new");
     this.getHomeGoods("sell");
@@ -94,19 +99,16 @@ export default defineComponent({
     //     this.$refs.scroll.finishPullUp();
     //   });
     // },
-    getHomeGoods(type){
+    getHomeGoods(type) {
       const page = this.goods[type].page + 1;
-      getHomeGoods(type,page).then((res) => {
-         this.goods[type].list.push(...res.data.list);
-          this.goods[type].page += 1;
-
-      })
-    }
+      getHomeGoods(type, page).then((res) => {
+        this.goods[type].list.push(...res.data.list);
+        this.goods[type].page += 1;
+      });
+    },
   },
 });
 </script>
-
-
 
 <style scoped>
 #home {
