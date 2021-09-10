@@ -31,6 +31,7 @@
       // 1.创建BScroll对象
       this.scroll = new BScroll(this.$refs.wrapper, {
         click: true,
+        // 在Home组件用到的时候再写
         probeType: this.probeType,
         pullUpLoad: this.pullUpLoad
       })
