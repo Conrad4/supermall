@@ -8,7 +8,7 @@
 
 <script>
   import BScroll from 'better-scroll'
-
+  
   export default {
     name: "Scroll",
     props: {
@@ -39,6 +39,7 @@
       // 2.监听滚动的位置
       this.scroll.on('scroll', (position) => {
         // console.log(position);
+        // 通过emit把这个事件传出去
         this.$emit('scroll', position)
       })
 

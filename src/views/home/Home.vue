@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <nav-bar class=""><div slot="center">购物街</div></nav-bar>
-    <scroll >
+    <scroll>
       <home-swiper :banners="banners" />
       <recommend-view :recommends="recommends" />
       <tab-control
@@ -60,6 +60,20 @@ export default defineComponent({
     /**
      * 事件监听相关的方法
      */
+    // 防抖，在一定时间内只执行一次。参数：func函数本身，和时间
+    debounce(func, delay) {
+      // 创建一个用来存放定时器的返回值
+      let timeout = null;
+
+      return function(...arguments) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          //apply调用一个具有给定this值的函数，以及以一个数组（或类数组对象）的形式提供的参数，简单来说 可以改变this
+          // arguments event指向！谷歌了解
+          func.apply(this, arguments); 
+        }, delay);
+      };
+    },
     tabClick(index) {
       switch (index) {
         case 0:
