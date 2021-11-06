@@ -19,6 +19,12 @@
           return {}
         }
       }
+    },
+
+    methods:{
+      itemClick() {
+        this.$router.push('/detail/:id');
+      }
     }
   }
 </script>
