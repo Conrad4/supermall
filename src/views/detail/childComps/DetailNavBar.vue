@@ -28,9 +28,12 @@ export default {
   },
   watch: {},
   computed: {},
-  methods: {},
+  methods: {
+    titleClick(){
+
+    },
+  },
   created() {},
-  mounted() {},
 };
 </script>
 <style lang="scss" scoped>

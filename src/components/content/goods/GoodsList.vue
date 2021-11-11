@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-    <goods-list-item v-for="(item, id) in goods" :goods-item="item" :key="id"/>
+    <goods-list-item v-for="(item, id) in goods" :goods-item="item" :key="id" @click="clickGoods"/>
   </div>
 </template>
 
@@ -19,7 +19,10 @@
           return []
         }
       }
-    }
+    },
+    methods: {
+
+    },
   }
 </script>
 

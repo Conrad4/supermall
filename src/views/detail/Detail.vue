@@ -15,7 +15,9 @@ export default {
     return {};
   },
   created() {
-    this.iid = this.$route.params.iid;
+    this.iid = this.$router.params.id;
+
+    getGoodsDetail()
   },
   mounted() {},
   watch: {},
